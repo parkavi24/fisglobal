@@ -1,0 +1,15 @@
+uname: any;
+
+  passwd: any;
+
+  email:any;
+
+   formdata: FormGroup = new FormGroup({
+
+    uname: new FormControl("admin", [ Validators.required, Validators.minLength(6) ]   ),
+
+    passwd: new FormControl("admin", Validators.required),
+
+    email : new FormControl('email', Validators.email)
+
+ });
