@@ -1,0 +1,18 @@
+select deptno, count(deptno) from emp group by deptno having count(deptno) >5;
+
+
+
+2. select deptno, count(deptno) from emp having count(deptno) > 3 group by deptno;
+
+
+
+3. select deptno, avg(sal) from emp group by deptno having avg(sal) >2500;
+
+
+
+4. select job, sum(sal) Payroll from emp where job<>'SALESMAN' group by job having sum(sal) >=5000 order by sum(sal) desc;
+
+
+
+5. select deptno, min(sal), max(sal), sum(sal) from emp where job='CLERK'group by deptno
+having min(sal) <1000
