@@ -95,7 +95,7 @@ ORDER BY am.customer_number, account_number
 
 *SELECT count(customer_number) Count_Customer
 FROM customer_master
-WHERE customer_number NOT IN (SELECT customer_number FROM account_master)
+WHERE customer_number NOT IN (SELECT customer_number FROM account_master);
 
 * SELECT transaction_type,count(transaction_number) Trans_Count
 FROM account_masteram INNER JOIN transaction_details td
