@@ -111,3 +111,9 @@ group by firstname
 having count(account_number)>1
 order by firstname;
 
+*SELECT td.account_number, opening_balance+sum(transaction_amount) Deposit_Amount
+FROM account_masteram INNER JOIN transaction_details td
+ON am.account_number=td.account_number
+WHERE transaction_type='deposit'
+GROUP BY account_number
+ORDER BY account_number;
