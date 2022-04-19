@@ -61,3 +61,5 @@ where deptno = (select deptno from dept where loc='CHICAGO' );
 8. select * from emp where deptno = (select deptno from emp where ename='FORD') and
 job in (select job from emp where deptno= (select deptno from dept where dname='SALES'));
 
+9.select job, avg(sal) from emp group by job having avg(sal) in
+-> (select avg(sal) from emp group by job);
