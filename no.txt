@@ -122,3 +122,9 @@ ORDER BY account_number;
 branch_master.branch_city, count(account_master.account_number) as No_of_Accounts from
 branch_master left join account_master on account_master.branch_id=branch_master.branch_id
 group by branch_master.branch_city order by branch_city;
+
+*selectcustomer_master.customer_number, firstname, customer_city, branch_city
+fromaccount_master inner join customer_master on account_master.customer_number =
+customer_master.customer_number
+inner join branch_master on account_master.branch_id = branch_master.branch_id
+wherecustomer_city != branch_city order by customer_master.customer_number;
