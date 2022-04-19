@@ -87,4 +87,9 @@ SELECT EMPNO,ENAME,JOB FROM EMP WHERE DEPTNO=(SELECT DEPTNO FROM DEPT WHERE DNAM
 * SELECT c.customer_number,c.firstname,a.account_number FROM account_master a join
 customer_master c ON c.customer_number=a.customer_number WHERE
 day(a.account_opening_date)>'15' ORDER BY c.customer_number,a.account_number;
+*SELECT am.customer_number,firstname, account_number
+FROM customer_master cm INNER JOIN account_master am
+ON cm.customer_number=am.customer_number
+WHERE account_status='Terminated'
+ORDER BY am.customer_number, account_number
 
