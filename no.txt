@@ -111,6 +111,8 @@ group by firstname
 having count(account_number)>1
 order by firstname;
 
+
+
 *SELECT td.account_number, opening_balance+sum(transaction_amount) Deposit_Amount
 FROM account_masteram INNER JOIN transaction_details td
 ON am.account_number=td.account_number
@@ -128,3 +130,8 @@ fromaccount_master inner join customer_master on account_master.customer_number 
 customer_master.customer_number
 inner join branch_master on account_master.branch_id = branch_master.branch_id
 wherecustomer_city != branch_city order by customer_master.customer_number;
+
+*SELECT count(ld.customer_number) Count
+FROM customer_master cm INNER JOIN loan_detailsld
+ON cm.customer_number=ld.customer_number
+WHERE cm.customer_number NOT IN ( SELECTcustomer_number FROM account_master)
