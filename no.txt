@@ -93,3 +93,21 @@ ON cm.customer_number=am.customer_number
 WHERE account_status='Terminated'
 ORDER BY am.customer_number, account_number
 
+*SELECT count(customer_number) Count_Customer
+FROM customer_master
+WHERE customer_number NOT IN (SELECT customer_number FROM account_master)
+
+* SELECT transaction_type,count(transaction_number) Trans_Count
+FROM account_masteram INNER JOIN transaction_details td
+ON am.account_number=td.account_number
+WHERE customer_number like '%001'
+GROUP BY transaction_type
+ORDER BY transaction_type;
+
+*selectfirstname
+FROM customer_master cm INNER JOIN account_master am
+ON cm.customer_number=am.customer_number
+group by firstname
+having count(account_number)>1
+order by firstname;
+
