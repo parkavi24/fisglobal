@@ -1,4 +1,4 @@
-select deptno, count(deptno) from emp group by deptno having count(deptno) >5;
+1.select deptno, count(deptno) from emp group by deptno having count(deptno) >5;
 
 
 
@@ -16,3 +16,48 @@ select deptno, count(deptno) from emp group by deptno having count(deptno) >5;
 
 5. select deptno, min(sal), max(sal), sum(sal) from emp where job='CLERK'group by deptno
 having min(sal) <1000
+
+1. select empno, ename, sal, deptno from emp
+where sal < ( select sal from emp where empno= 7566);
+
+
+
+
+2. select empno, ename, job from emp
+where job = ( select job from emp where ename =Upper('ford')) ;
+
+
+
+
+3. Select empno, ename, hiredate, sal job from emp
+where hiredate > (select hiredate from emp where ename ='MILLER')
+ORDER by sal;
+
+
+
+4. select empno, ename, sal, job from emp
+where deptno = (select deptno from dept where dname='sales');
+
+
+
+5. select empno, ename, sal, job from emp
+where deptno = (select deptno from dept where loc= 'NEW YORK') and job = 'CLERK';
+
+
+
+
+6. select empno, ename, sal, job from emp
+where deptno = (Select deptno from dept where dname ='SALES');
+
+
+
+
+7. select empno, ename, sal, comm, sal+IFNull(comm,0) from emp
+where deptno = (select deptno from dept where loc='CHICAGO' );
+
+
+
+
+8. select * from emp where deptno = (select deptno from emp where ename='FORD') and
+job in (select job from emp where deptno= (select deptno from dept where dname='SALES'));
+
