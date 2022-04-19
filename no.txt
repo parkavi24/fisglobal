@@ -84,3 +84,7 @@ SELECT EMPNO,ENAME,JOB FROM EMP WHERE DEPTNO=(SELECT DEPTNO FROM DEPT WHERE DNAM
 
 5. SELECT DEPTNO, JOB FROM EMP WHERE DEPTNO=10 UNION ALL SELECT DEPTNO, JOB FROM EMP WHERE DEPTNO=20;
 
+* SELECT c.customer_number,c.firstname,a.account_number FROM account_master a join
+customer_master c ON c.customer_number=a.customer_number WHERE
+day(a.account_opening_date)>'15' ORDER BY c.customer_number,a.account_number;
+
