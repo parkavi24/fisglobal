@@ -194,4 +194,14 @@ END
 FROM RESULTS;
 
 
+[11:55 AM] Praveen Kumar  G S
+create table students(studentid int, firstname varchar(20), lastname varchar(20), class varchar(5));
+SELECT studentid, firstname, lastname FROM students WHERE class = 'CS';
+EXPLAIN SELECT studentid, firstname, lastname FROM students WHERE class = 'CS';
+CREATE INDEX class ON students (class);
+EXPLAIN SELECT studentid, firstname, lastname FROM students WHERE class = 'CS';
+SHOW INDEXES FROM students;
+
+
+
 
