@@ -203,5 +203,31 @@ EXPLAIN SELECT studentid, firstname, lastname FROM students WHERE class = 'CS';
 SHOW INDEXES FROM students;
 
 
+*create table data( id int, a varchar(255), b varchar(255), c varchar(255));
+
+* select id, 'a' col, a value
+from data
+union all
+select id, 'b' col, b value
+from data
+union all
+select id, 'c' col, c value
+from data;
+
+* select t.id,
+c.col,
+case c.col
+when 'a' then a
+when 'b' then b
+when 'c' then c
+end as data
+from data t
+cross join
+(
+select 'a' as col
+union all select 'b'
+union all select 'c'
+) c;
+
 
 
